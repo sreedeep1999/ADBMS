@@ -9,8 +9,7 @@ update employee set dno=3 where empid=3;
 update employee set dno=5 where empid=5;
 
 update employee set dno=1 where empid=1;
-
- select * from department where dno  in(select dno from employee group by dno having count(*) <=2);
+ select * from employee where dno  IN (select dno from department where salary <=50000);
 select * from employee where salary not between 20000 and 30000;
 select * from employee where salary in(20000,30000);
 select * from employee where salary not in(20000,30000);
