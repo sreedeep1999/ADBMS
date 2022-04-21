@@ -18,6 +18,10 @@ insert into department values(7,'','parvathy',20000);
 select * from department where dname IS NULL;
 select * from department where dname IS NOT NULL;
 select ename salary from employee where ename like 'a%';
+select ename salary from employee where ename like 'a%';
+select ename salary from employee where ename like '_n%';
+select ename salary from employee where ename like '%a%';
+
 
 
 
