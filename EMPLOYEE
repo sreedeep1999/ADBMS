@@ -21,6 +21,8 @@ select ename salary from employee where ename like 'a%';
 select ename salary from employee where ename like 'a%';
 select ename salary from employee where ename like '_n%';
 select ename salary from employee where ename like '%a%';
+select ename salary from employee where ename like '%a%';
+
 
 
 
