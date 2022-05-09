@@ -55,6 +55,8 @@ select companyname from works group by companyname having count(distinct empname
 
 select companyname from works group by companyname having sum(salary) <=all(select sum(salary) from works group by companyname);
 
+select companyname from works group by companyname having avg(salary)>(select avg(salary) from works where companyname='abc');
+
 update employees set city='klm' where empname='ravi';
 
 update works set salary=salary * 1.1 where companyname='abc'; 
