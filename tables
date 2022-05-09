@@ -54,3 +54,12 @@ select empname from works t where salary >(select avg(salary) from works s where
 select companyname from works group by companyname having count(distinct empname)>=all(select count(distinct empname)from works group by companyname);
 
 select companyname from works group by companyname having sum(salary) <=all(select sum(salary) from works group by companyname);
+
+update employees set city='klm' where empname='ravi';
+
+update works set salary=salary * 1.1 where companyname='abc'; 
+
+update works set salary=salary * 1.1 where empname in(select managername from manager) and companyname='abc';
+
+delete works where companyname='abc';
+
