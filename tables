@@ -30,3 +30,15 @@ insert into manager values('anu','akhil');
 insert into manager values('akhila','amal');
 insert into manager values('vimal','vijay');
 select * from manager ;
+
+
+
+select empname from works where companyname='abc';
+
+select e.empname,city from employees e,works w where w.companyname='abc' and w.empname=e.empname;
+
+select * from employees where empname in(select empname from works where companyname='abc' and salary>5000);
+
+select e.empname from employees e,works w,company c where  e.empname=w.empname and w.companyname=c.companyname;
+
+select p.empname from employees p,employees r,manager m where p.empname=m.empname and m.managername=r.empname and p.street=r.street and p.city=r.city;
