@@ -42,3 +42,15 @@ select * from employees where empname in(select empname from works where company
 select e.empname from employees e,works w,company c where  e.empname=w.empname and w.companyname=c.companyname;
 
 select p.empname from employees p,employees r,manager m where p.empname=m.empname and m.managername=r.empname and p.street=r.street and p.city=r.city;
+
+select p.empname from employees p,employees r,manager m where p.empname=m.empname and m.managername=r.empname and p.street=r.street and p.city=r.city;
+
+select empname from works where companyname <> 'abc';
+
+select empname from works where salary > all(select salary from works where companyname ='abc');
+
+select empname from works t where salary >(select avg(salary) from works s where t.companyname=s.companyname);
+
+select companyname from works group by companyname having count(distinct empname)>=all(select count(distinct empname)from works group by companyname);
+
+select companyname from works group by companyname having sum(salary) <=all(select sum(salary) from works group by companyname);
