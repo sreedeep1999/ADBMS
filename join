@@ -23,8 +23,12 @@ create table employees(ename varchar(20) primary key,esalary int);
 insert into employees values(:ename,:esalary);
 select * from employees;
 
-create table job_salary(grade varchar(20) primary key,);
- 
+
+create table job_salary(grade varchar(20) primary key,lower_sal int,higher_sal int); 
+insert into job_salary values(:grade,:lower_sal,:higher_sal);
+select * from job_salary;
+select e.ename,e.esalary,j.grade from employees e,job_salary j where e.esalary between j.lower_sal and j.higher_sal;
+
 
 
 
