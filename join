@@ -1,0 +1,30 @@
+create table employe(eid int primary key,ename varchar(20),did int);
+create table department1(did int primary key,dname varchar(15),location varchar(20));
+
+insert into employe values(105,'sreedeep',50);
+ 
+insert into department1 values(10,'marketing','goa');
+insert into department1 values(20,'hr','kerala');
+
+insert into department1 values(30,'it','mumbai');
+
+insert into department1 values(40,'accounting','delhi');
+
+insert into department1 values(50,'sales','tamilnadu');
+select * from employe;
+select * from department1;
+select ename,dname from employe,department1;
+
+select employe.eid,employe.ename,employe.did,department1.did,department1.dname,department1.location from employe,department1 where employe.did = department1.did;
+select employe.*,department1.* from employe,department1 where employe.did = department1.did;
+
+
+create table employees(ename varchar(20) primary key,esalary int);
+insert into employees values(:ename,:esalary);
+select * from employees;
+
+create table job_salary(grade varchar(20) primary key,);
+ 
+
+
+
