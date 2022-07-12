@@ -1,0 +1,16 @@
+create table emply1(empid number(6) primary key not null,firstname varchar2(10),lastname varchar2(10)not null,hiredate date not null,jobid varchar2(10) not null,salary number(8,2),mgrid number(6),deptid number(4));
+
+insert into emply1 values(:empid,:firstname,:lastname,:hiredate,:jobid,:salary,:mgrid,:deptid);
+select * from emply1;
+
+create table deptl(deptid number(4)primary key not  null,deptname varchar2(30)not null,mgrid number(6),locid number(4));
+
+
+insert into deptl values(:deptid,:deptname,:mgrid,:locid);
+
+select * from deptl;
+
+create or replace trigger trigger1 after insert on deptl for each row begin 
+update emply1 set salary=40000 where deptid=20;
+end;
+
