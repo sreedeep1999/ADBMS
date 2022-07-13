@@ -1,5 +1,6 @@
  
 
+from multiprocessing import Condition
 import pymongo
 connection=pymongo.MongoClient("mongodb://localhost:27017")
 mydb=connection["empDbs"]
@@ -7,11 +8,13 @@ myemployee=mydb["employees"]
 
 while True:
     print("  MENU  \n")
-    print("  Add an employee  \n")
-    print("  View all employee  \n")
-    print("  Search an employee  \n")
-    print("  delete an employe  \n")
-    print("  update an employee  \n")
+    print(" 1) Add an employee  \n")
+    print(" 2)View all employee  \n")
+    print(" 3)Search an employee  \n")
+    print(" 4) delete an employe  \n")
+    print(" 5)update an employee  \n")
+    print(" 6)employee names starting with g \n ")
+    print(" 7)exit \n")
     option=int(input("Select an option"))
     if option==1:
         print("  Add an option selected  ")
@@ -24,7 +27,7 @@ while True:
 
     elif option==2:
         print("  View all employee option selected ")
-        result=myemployee.find()
+        result=myemployee.find({},{"_id":0,"empDesig":0}).sort("empName",-1)
         for i in result:
             print (i)
 
@@ -51,7 +54,12 @@ while True:
         myemployee.update_one(setData,newData)
         print("data updated successfully")
 
-
+    elif option==6:
+        inp=input("starting name :")
+        Condition={"empName":{"$gte":inp}}
+        result=myemployee.find(Condition,{"_id":0}).sort("empName",-1)
+        for i in result:
+            print(i)
 
     else:
         break
